@@ -1,6 +1,6 @@
 # SoundAudit
 
-SoundAudit is an audio accessibility auditing tool for hard-of-hearing users and content creators. It analyzes audio or video files and generates a report that highlights issues such as background noise, fast speech, possible transcription errors, language detection problems, and unclear sections.
+SoundAudit is an audio accessibility auditing tool for users and content creators. It analyzes audio or video files and generates a report that highlights issues such as background noise, fast speech, possible transcription errors, language detection problems, and unclear sections.
 
 The goal is not just to generate captions. SoundAudit helps creators understand whether their audio is actually easy to follow.
 
