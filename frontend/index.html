@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundAudit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-text">
+        <span class="badge">Audio Accessibility Audit</span>
+        <h1>SoundAudit</h1>
+        <p>
+          Analyze audio or video for accessibility issues that may affect
+          hard-of-hearing users.
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="upload-card">
+        <div class="upload-left">
+          <h2>Upload media</h2>
+          <p class="subtext">
+            Choose an audio or video file to generate an accessibility report.
+          </p>
+
+          <div class="upload-row">
+            <label for="fileInput" class="custom-file-button">Choose File</label>
+            <input type="file" id="fileInput" accept="audio/*,video/*" />
+            <span id="fileName" class="file-name">No file chosen</span>
+          </div>
+        </div>
+
+        <div class="upload-right">
+          <button id="analyzeBtn" onclick="uploadFile()">Analyze Audio</button>
+        </div>
+      </section>
+
+      <section id="loadingCard" class="loading-card hidden">
+        <div class="loading-header">
+          <h3>Analyzing your file...</h3>
+          <span id="progressPercent">0%</span>
+        </div>
+
+        <div class="progress-bar-wrapper">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <div class="loading-meta">
+          <p id="loadingStage">Preparing upload...</p>
+          <p class="loading-note">
+            This is a live progress indicator for the analysis flow.
+          </p>
+        </div>
+      </section>
+
+      <section id="results" class="results hidden">
+        <div class="results-top">
+          <div class="score-card">
+            <p class="score-label">Accessibility Score</p>
+            <div class="score-ring" id="scoreRing">
+              <span id="scoreValue">--</span>
+            </div>
+            <button onclick="downloadReport()" class="secondary-button">Download Report</button>
+            <p id="scoreSummary" class="score-summary">Waiting for report...</p>
+          </div>
+
+          <div class="summary-card">
+            <h3>Overview</h3>
+            <div class="metric-grid">
+              <div class="metric-box">
+                <span class="metric-title">Speech speed</span>
+                <span class="metric-value"><span id="speechSpeed">--</span> WPM</span>
+              </div>
+
+              <div class="metric-box">
+                <span class="metric-title">Background noise</span>
+                <span class="metric-value" id="backgroundNoise">--</span>
+              </div>
+
+              <div class="metric-box">
+                <span class="metric-title">Languages</span>
+                <span class="metric-value" id="languageCount">--</span>
+              </div>
+
+              <div class="metric-box">
+                <span class="metric-title">Status</span>
+                <span class="metric-value" id="reportStatus">--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-grid">
+          <section class="panel">
+            <h3>Languages Detected</h3>
+            <div id="languages" class="chip-list"></div>
+          </section>
+
+          <section class="panel">
+            <h3>Warnings</h3>
+            <ul id="warnings" class="styled-list"></ul>
+          </section>
+
+          <section class="panel">
+            <h3>Recommendations</h3>
+            <ul id="recommendations" class="styled-list"></ul>
+          </section>
+
+          <section class="panel timeline-panel">
+            <h3>Accessibility Issues Timeline</h3>
+            <div id="issuesTimeline" class="timeline"></div>
+          </section>
+
+          <section class="panel transcript-panel">
+            <h3>Transcript</h3>
+
+            <div class="transcript-legend">
+                <span><b class="legend-dot high"></b> High issue</span>
+                <span><b class="legend-dot medium"></b> Medium issue</span>
+                <span><b class="legend-dot low"></b> Low issue</span>
+            </div>
+
+            <div id="transcript" class="interactive-transcript"></div>
+            </section>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="floatingTooltip" class="floating-tooltip hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>

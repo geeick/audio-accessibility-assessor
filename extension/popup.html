@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SoundAudit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="badge">SoundAudit Extension</div>
+
+    <h1>Analyze page media</h1>
+
+    <p class="description">
+      Find video or audio files on this page and send one to SoundAudit.
+    </p>
+
+    <button id="scanBtn">Find media on page</button>
+
+    <p id="status">Ready.</p>
+
+    <section id="mediaSection" class="hidden">
+      <h2>Detected media</h2>
+      <div id="mediaList"></div>
+    </section>
+
+    <section id="loadingSection" class="hidden">
+      <h2>Analyzing...</h2>
+      <div class="progress-wrapper">
+        <div id="progressBar"></div>
+      </div>
+      <p id="loadingText">Sending media to backend...</p>
+    </section>
+
+    <section id="resultSection" class="hidden">
+    <h2>Report</h2>
+
+    <div class="score-box">
+        <span id="score">--</span>
+        <small>/100</small>
+    </div>
+
+    <p><strong>Speech speed:</strong> <span id="speechSpeed">--</span> WPM</p>
+    <p><strong>Background noise:</strong> <span id="backgroundNoise">--</span></p>
+    <p><strong>Languages:</strong> <span id="languageCount">--</span></p>
+
+    <h3>Issues</h3>
+    <div id="issues"></div>
+
+    <button id="fullReportBtn" class="secondary">Open Full Analysis</button>
+    <button id="saveBtn" class="secondary">Save Report</button>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

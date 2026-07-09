@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SoundAudit Full Report</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="report-page">
+  <main class="full-report">
+    <header class="report-hero">
+      <div>
+        <div class="badge">SoundAudit Report</div>
+        <h1>Full Audio Accessibility Analysis</h1>
+        <p>Detailed report from the media file detected on the page.</p>
+      </div>
+
+      <div class="big-score">
+        <span id="score">--</span>
+        <small>/100</small>
+      </div>
+    </header>
+
+    <section class="report-grid">
+      <div class="report-card">
+        <h2>Overview</h2>
+        <p><strong>Speech speed:</strong> <span id="speechSpeed">--</span> WPM</p>
+        <p><strong>Background noise:</strong> <span id="backgroundNoise">--</span></p>
+        <p><strong>Languages:</strong> <span id="languageCount">--</span></p>
+      </div>
+
+      <div class="report-card">
+        <h2>Languages Detected</h2>
+        <div id="languages"></div>
+      </div>
+
+      <div class="report-card">
+        <h2>Warnings</h2>
+        <ul id="warnings"></ul>
+      </div>
+
+      <div class="report-card">
+        <h2>Recommendations</h2>
+        <ul id="recommendations"></ul>
+      </div>
+    </section>
+
+    <section class="report-card">
+      <h2>Accessibility Issues Timeline</h2>
+      <div id="issuesTimeline"></div>
+    </section>
+
+    <section class="report-card">
+      <h2>Transcript</h2>
+
+      <div class="transcript-legend">
+        <span><b class="legend-dot high"></b> High issue</span>
+        <span><b class="legend-dot medium"></b> Medium issue</span>
+        <span><b class="legend-dot low"></b> Low issue</span>
+      </div>
+
+      <div id="transcript" class="interactive-transcript"></div>
+    </section>
+
+    <button id="downloadBtn">Download Report</button>
+  </main>
+
+  <div id="floatingTooltip" class="floating-tooltip hidden"></div>
+
+  <script src="report.js"></script>
+</body>
+</html>
